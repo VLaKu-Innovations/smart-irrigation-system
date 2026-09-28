@@ -1,0 +1,196 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 800" width="100%" height="100%" style="background-color: #0f172a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Title & Header -->
+  <text x="550" y="40" text-anchor="middle" fill="#f8fafc" font-size="24" font-weight="bold">ESP32 2-Zone Smart Drip Irrigation System</text>
+  <text x="550" y="65" text-anchor="middle" fill="#94a3b8" font-size="14">Master Electrical Wiring Schematic &amp; Pinout (30-Pin ESP32-WROOM-32)</text>
+
+  <!-- ================= POWER SUPPLY & BUCK CONVERTER ================= -->
+  <g transform="translate(40, 90)" filter="url(#shadow)">
+    <rect width="240" height="150" rx="10" fill="url(#cardGrad)" stroke="#38bdf8" stroke-width="2"/>
+    <text x="120" y="28" text-anchor="middle" fill="#38bdf8" font-size="15" font-weight="bold">12V 5A DC Power Adapter</text>
+    <rect x="25" y="45" width="190" height="40" rx="6" fill="#0284c7" opacity="0.2"/>
+    <text x="120" y="70" text-anchor="middle" fill="#bae6fd" font-size="13">Main System Supply (60W)</text>
+    
+    <!-- Output terminals -->
+    <circle cx="50" cy="115" r="8" fill="#ef4444"/>
+    <text x="70" y="120" fill="#f8fafc" font-size="12" font-weight="bold">+12V Rail</text>
+    
+    <circle cx="160" cy="115" r="8" fill="#475569"/>
+    <text x="180" y="120" fill="#f8fafc" font-size="12" font-weight="bold">GND</text>
+  </g>
+
+  <g transform="translate(40, 270)" filter="url(#shadow)">
+    <rect width="240" height="150" rx="10" fill="url(#cardGrad)" stroke="#f59e0b" stroke-width="2"/>
+    <text x="120" y="28" text-anchor="middle" fill="#f59e0b" font-size="15" font-weight="bold">DC-DC Buck Converter</text>
+    <text x="120" y="50" text-anchor="middle" fill="#94a3b8" font-size="11">12V IN ──► 5.0V OUT (≥3A)</text>
+    
+    <circle cx="50" cy="85" r="7" fill="#ef4444"/>
+    <text x="65" y="90" fill="#cbd5e1" font-size="11">IN+ (12V)</text>
+    <circle cx="150" cy="85" r="7" fill="#475569"/>
+    <text x="165" y="90" fill="#cbd5e1" font-size="11">IN- (GND)</text>
+    
+    <line x1="20" y1="105" x2="220" y2="105" stroke="#334155" stroke-width="1"/>
+    
+    <circle cx="50" cy="125" r="7" fill="#f97316"/>
+    <text x="65" y="130" fill="#fdba74" font-size="12" font-weight="bold">OUT+ (5V)</text>
+    <circle cx="150" cy="125" r="7" fill="#475569"/>
+    <text x="165" y="130" fill="#cbd5e1" font-size="12" font-weight="bold">OUT- (GND)</text>
+  </g>
+
+  <!-- ================= ESP32 CONTROLLER (30-PIN) ================= -->
+  <g transform="translate(360, 90)" filter="url(#shadow)">
+    <rect width="360" height="520" rx="12" fill="url(#cardGrad)" stroke="#10b981" stroke-width="2"/>
+    <text x="180" y="32" text-anchor="middle" fill="#10b981" font-size="17" font-weight="bold">ESP32-WROOM-32 (30-PIN)</text>
+    <text x="180" y="52" text-anchor="middle" fill="#6ee7b7" font-size="12">DOIT DevKit V1 Microcontroller</text>
+
+    <!-- Header Left (15 pins) -->
+    <rect x="15" y="70" width="150" height="425" rx="6" fill="#1e293b" stroke="#334155"/>
+    <text x="90" y="92" text-anchor="middle" fill="#94a3b8" font-size="12" font-weight="bold">Left Header (J3)</text>
+    
+    <!-- Pin Labels Left -->
+    <g font-size="11" font-family="monospace">
+      <text x="25" y="120" fill="#64748b">01: EN</text>
+      <text x="25" y="145" fill="#64748b">02: VP (36)</text>
+      <text x="25" y="170" fill="#64748b">03: VN (39)</text>
+      <text x="25" y="195" fill="#38bdf8" font-weight="bold">04: D34 (ADC1_6)</text>
+      <text x="25" y="220" fill="#38bdf8" font-weight="bold">05: D35 (ADC1_7)</text>
+      <text x="25" y="245" fill="#38bdf8" font-weight="bold">06: D32 (ADC1_4)</text>
+      <text x="25" y="270" fill="#38bdf8" font-weight="bold">07: D33 (ADC1_5)</text>
+      <text x="25" y="295" fill="#a855f7" font-weight="bold">08: D25 (PUMP)</text>
+      <text x="25" y="320" fill="#ec4899" font-weight="bold">09: D26 (VALVE 1)</text>
+      <text x="25" y="345" fill="#f43f5e" font-weight="bold">10: D27 (VALVE 2)</text>
+      <text x="25" y="370" fill="#64748b">11: D14</text>
+      <text x="25" y="395" fill="#64748b">12: D12</text>
+      <text x="25" y="420" fill="#64748b">13: D13</text>
+      <text x="25" y="445" fill="#cbd5e1" font-weight="bold">14: GND</text>
+      <text x="25" y="470" fill="#f97316" font-weight="bold">15: VIN (+5V)</text>
+    </g>
+
+    <!-- Header Right (15 pins) -->
+    <rect x="195" y="70" width="150" height="425" rx="6" fill="#1e293b" stroke="#334155"/>
+    <text x="270" y="92" text-anchor="middle" fill="#94a3b8" font-size="12" font-weight="bold">Right Header (J2)</text>
+
+    <!-- Pin Labels Right -->
+    <g font-size="11" font-family="monospace">
+      <text x="205" y="120" fill="#64748b">01: D23</text>
+      <text x="205" y="145" fill="#64748b">02: D22 (SCL)</text>
+      <text x="205" y="170" fill="#64748b">03: TX0</text>
+      <text x="205" y="195" fill="#64748b">04: RX0</text>
+      <text x="205" y="220" fill="#64748b">05: D21 (SDA)</text>
+      <text x="205" y="245" fill="#64748b">06: D19</text>
+      <text x="205" y="270" fill="#64748b">07: D18</text>
+      <text x="205" y="295" fill="#64748b">08: D5</text>
+      <text x="205" y="320" fill="#64748b">09: TX2</text>
+      <text x="205" y="345" fill="#64748b">10: RX2</text>
+      <text x="205" y="370" fill="#64748b">11: D4</text>
+      <text x="205" y="395" fill="#22c55e">12: D2 (LED)</text>
+      <text x="205" y="420" fill="#64748b">13: D15</text>
+      <text x="205" y="445" fill="#cbd5e1" font-weight="bold">14: GND</text>
+      <text x="205" y="470" fill="#eab308" font-weight="bold">15: 3V3 OUT</text>
+    </g>
+  </g>
+
+  <!-- ================= 3x MOSFET DRIVERS & ACTUATORS ================= -->
+  <g transform="translate(790, 90)" filter="url(#shadow)">
+    <!-- MOSFET 1: Pump -->
+    <rect width="270" height="150" rx="8" fill="url(#cardGrad)" stroke="#a855f7" stroke-width="2"/>
+    <text x="135" y="25" text-anchor="middle" fill="#c084fc" font-size="14" font-weight="bold">MOSFET 1: Diaphragm Pump</text>
+    <text x="135" y="45" text-anchor="middle" fill="#94a3b8" font-size="11">Gate: GPIO 25 | Load: 12V 3-5A</text>
+    
+    <rect x="15" y="60" width="105" height="70" rx="4" fill="#1e293b"/>
+    <text x="67" y="80" text-anchor="middle" fill="#a855f7" font-size="11">Gate (GPIO 25)</text>
+    <text x="67" y="100" text-anchor="middle" fill="#64748b" font-size="10">10k Pull-down</text>
+    <text x="67" y="118" text-anchor="middle" fill="#cbd5e1" font-size="11">Source (GND)</text>
+
+    <!-- Diaphragm Pump Symbol / Box -->
+    <rect x="140" y="60" width="115" height="70" rx="4" fill="#0f172a" stroke="#a855f7"/>
+    <text x="197" y="85" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="bold">12V PUMP</text>
+    <text x="197" y="103" text-anchor="middle" fill="#fbbf24" font-size="10">1N4007 Diode ⚡</text>
+    <text x="197" y="120" text-anchor="middle" fill="#94a3b8" font-size="10">(Reverse Diode)</text>
+  </g>
+
+  <g transform="translate(790, 260)" filter="url(#shadow)">
+    <!-- MOSFET 2: Solenoid 1 -->
+    <rect width="270" height="140" rx="8" fill="url(#cardGrad)" stroke="#ec4899" stroke-width="2"/>
+    <text x="135" y="25" text-anchor="middle" fill="#f472b6" font-size="14" font-weight="bold">MOSFET 2: Zone 1 Solenoid</text>
+    <text x="135" y="43" text-anchor="middle" fill="#94a3b8" font-size="11">Gate: GPIO 26 | 12V NC Valve</text>
+
+    <rect x="15" y="55" width="105" height="65" rx="4" fill="#1e293b"/>
+    <text x="67" y="75" text-anchor="middle" fill="#ec4899" font-size="11">Gate (GPIO 26)</text>
+    <text x="67" y="93" text-anchor="middle" fill="#64748b" font-size="10">10k Pull-down</text>
+    <text x="67" y="110" text-anchor="middle" fill="#cbd5e1" font-size="11">Source (GND)</text>
+
+    <rect x="140" y="55" width="115" height="65" rx="4" fill="#0f172a" stroke="#ec4899"/>
+    <text x="197" y="78" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="bold">VALVE 1 (12V)</text>
+    <text x="197" y="96" text-anchor="middle" fill="#fbbf24" font-size="10">1N4007 Diode ⚡</text>
+    <text x="197" y="112" text-anchor="middle" fill="#94a3b8" font-size="10">Normally Closed</text>
+  </g>
+
+  <g transform="translate(790, 420)" filter="url(#shadow)">
+    <!-- MOSFET 3: Solenoid 2 -->
+    <rect width="270" height="140" rx="8" fill="url(#cardGrad)" stroke="#f43f5e" stroke-width="2"/>
+    <text x="135" y="25" text-anchor="middle" fill="#fb7185" font-size="14" font-weight="bold">MOSFET 3: Zone 2 Solenoid</text>
+    <text x="135" y="43" text-anchor="middle" fill="#94a3b8" font-size="11">Gate: GPIO 27 | 12V NC Valve</text>
+
+    <rect x="15" y="55" width="105" height="65" rx="4" fill="#1e293b"/>
+    <text x="67" y="75" text-anchor="middle" fill="#f43f5e" font-size="11">Gate (GPIO 27)</text>
+    <text x="67" y="93" text-anchor="middle" fill="#64748b" font-size="10">10k Pull-down</text>
+    <text x="67" y="110" text-anchor="middle" fill="#cbd5e1" font-size="11">Source (GND)</text>
+
+    <rect x="140" y="55" width="115" height="65" rx="4" fill="#0f172a" stroke="#f43f5e"/>
+    <text x="197" y="78" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="bold">VALVE 2 (12V)</text>
+    <text x="197" y="96" text-anchor="middle" fill="#fbbf24" font-size="10">1N4007 Diode ⚡</text>
+    <text x="197" y="112" text-anchor="middle" fill="#94a3b8" font-size="10">Normally Closed</text>
+  </g>
+
+  <!-- ================= 4x CAPACITIVE SOIL SENSORS ================= -->
+  <g transform="translate(40, 630)" filter="url(#shadow)">
+    <rect width="1020" height="140" rx="10" fill="url(#cardGrad)" stroke="#38bdf8" stroke-width="2"/>
+    <text x="510" y="25" text-anchor="middle" fill="#38bdf8" font-size="15" font-weight="bold">4x Capacitive Soil Moisture Sensors (v1.2 / v2.0) — Powered by 3.3V Only</text>
+    
+    <!-- Sensor 1 -->
+    <rect x="25" y="40" width="220" height="85" rx="6" fill="#1e293b" stroke="#0284c7"/>
+    <text x="135" y="60" text-anchor="middle" fill="#e0f2fe" font-size="13" font-weight="bold">Sensor Z1-A (GPIO 32)</text>
+    <text x="135" y="80" text-anchor="middle" fill="#94a3b8" font-size="11">Zone 1 | Root Depth A</text>
+    <text x="135" y="102" text-anchor="middle" fill="#38bdf8" font-size="11">VCC: 3V3 | GND | AOUT</text>
+
+    <!-- Sensor 2 -->
+    <rect x="275" y="40" width="220" height="85" rx="6" fill="#1e293b" stroke="#0284c7"/>
+    <text x="385" y="60" text-anchor="middle" fill="#e0f2fe" font-size="13" font-weight="bold">Sensor Z1-B (GPIO 33)</text>
+    <text x="385" y="80" text-anchor="middle" fill="#94a3b8" font-size="11">Zone 1 | Root Depth B</text>
+    <text x="385" y="102" text-anchor="middle" fill="#38bdf8" font-size="11">VCC: 3V3 | GND | AOUT</text>
+
+    <!-- Sensor 3 -->
+    <rect x="525" y="40" width="220" height="85" rx="6" fill="#1e293b" stroke="#0284c7"/>
+    <text x="635" y="60" text-anchor="middle" fill="#e0f2fe" font-size="13" font-weight="bold">Sensor Z2-A (GPIO 34)</text>
+    <text x="635" y="80" text-anchor="middle" fill="#94a3b8" font-size="11">Zone 2 | Root Depth A</text>
+    <text x="635" y="102" text-anchor="middle" fill="#38bdf8" font-size="11">VCC: 3V3 | GND | AOUT</text>
+
+    <!-- Sensor 4 -->
+    <rect x="775" y="40" width="220" height="85" rx="6" fill="#1e293b" stroke="#0284c7"/>
+    <text x="885" y="60" text-anchor="middle" fill="#e0f2fe" font-size="13" font-weight="bold">Sensor Z2-B (GPIO 35)</text>
+    <text x="885" y="80" text-anchor="middle" fill="#94a3b8" font-size="11">Zone 2 | Root Depth B</text>
+    <text x="885" y="102" text-anchor="middle" fill="#38bdf8" font-size="11">VCC: 3V3 | GND | AOUT</text>
+  </g>
+
+  <!-- ================= SIGNAL & POWER BUS BANNERS ================= -->
+  <g transform="translate(40, 440)" filter="url(#shadow)">
+    <rect width="240" height="170" rx="8" fill="url(#cardGrad)" stroke="#64748b"/>
+    <text x="120" y="24" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="bold">Key Circuit Notes</text>
+    <text x="15" y="50" fill="#ef4444" font-size="11">● 12V: Pump &amp; Solenoid power</text>
+    <text x="15" y="72" fill="#f97316" font-size="11">● 5V: ESP32 VIN (via Buck)</text>
+    <text x="15" y="94" fill="#eab308" font-size="11">● 3.3V: Capacitive Sensors only</text>
+    <text x="15" y="116" fill="#cbd5e1" font-size="11">● GND: Unified common ground</text>
+    <text x="15" y="138" fill="#a855f7" font-size="11">● GPIO: Logic-level MOSFETs</text>
+    <text x="15" y="156" fill="#fbbf24" font-size="11">● Diodes: 1N4007 reverse snubbers</text>
+  </g>
+</svg>

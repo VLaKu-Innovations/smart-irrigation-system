@@ -1,0 +1,25 @@
+# PlatformIO
+.pio/
+.pioenvs/
+.piolibdeps/
+
+# Arduino IDE
+*.hex
+*.elf
+*.bin
+build/
+
+# VS Code / IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Secrets / Credentials (for future WiFi/MQTT extensions)
+secrets.h
+credentials.h
+wifi_secrets.json
