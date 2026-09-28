@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 700" width="100%" height="100%" style="background-color: #09131f; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <linearGradient id="pipeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="50%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <filter id="pDrop" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Title -->
+  <text x="550" y="40" text-anchor="middle" fill="#f8fafc" font-size="24" font-weight="bold">ESP32 2-Zone Smart Drip Irrigation Network</text>
+  <text x="550" y="65" text-anchor="middle" fill="#94a3b8" font-size="14">Hydraulic Plumbing &amp; Flow Diagram (Reservoir ──► Filter ──► Pump ──► Manifold ──► Valves ──► Drip Emitters)</text>
+
+  <!-- Reservoir -->
+  <g transform="translate(40, 240)" filter="url(#pDrop)">
+    <rect width="130" height="220" rx="16" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+    <rect x="10" y="50" width="110" height="155" rx="8" fill="#0284c7" opacity="0.3"/>
+    <text x="65" y="32" text-anchor="middle" fill="#38bdf8" font-size="14" font-weight="bold">Water Tank</text>
+    <text x="65" y="115" text-anchor="middle" fill="#bae6fd" font-size="13">Reservoir</text>
+    <text x="65" y="140" text-anchor="middle" fill="#94a3b8" font-size="11">Clean Water</text>
+  </g>
+
+  <!-- Pipe: Tank to Filter -->
+  <path d="M 170 350 L 220 350" fill="none" stroke="url(#pipeGrad)" stroke-width="12" stroke-linecap="round"/>
+
+  <!-- 120-Mesh Filter -->
+  <g transform="translate(220, 290)" filter="url(#pDrop)">
+    <rect width="110" height="120" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <polygon points="35,35 75,35 65,85 45,85" fill="#f59e0b" opacity="0.4"/>
+    <text x="55" y="24" text-anchor="middle" fill="#f59e0b" font-size="13" font-weight="bold">120-Mesh</text>
+    <text x="55" y="105" text-anchor="middle" fill="#fdba74" font-size="11">Filter (1/2")</text>
+  </g>
+
+  <!-- Pipe: Filter to Pump -->
+  <path d="M 330 350 L 380 350" fill="none" stroke="url(#pipeGrad)" stroke-width="12" stroke-linecap="round"/>
+
+  <!-- 12V Diaphragm Pump -->
+  <g transform="translate(380, 275)" filter="url(#pDrop)">
+    <rect width="140" height="150" rx="12" fill="#1e293b" stroke="#a855f7" stroke-width="2"/>
+    <circle cx="70" cy="65" r="35" fill="#a855f7" opacity="0.2"/>
+    <text x="70" y="30" text-anchor="middle" fill="#c084fc" font-size="14" font-weight="bold">12V Diaphragm</text>
+    <text x="70" y="65" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="bold">PUMP</text>
+    <text x="70" y="85" text-anchor="middle" fill="#e9d5ff" font-size="11">~5 L/min</text>
+    <text x="70" y="130" text-anchor="middle" fill="#94a3b8" font-size="11">12V 3–5A DC</text>
+  </g>
+
+  <!-- Pipe: Pump to Manifold -->
+  <path d="M 520 350 L 580 350" fill="none" stroke="url(#pipeGrad)" stroke-width="12" stroke-linecap="round"/>
+
+  <!-- 2-Way Manifold -->
+  <g transform="translate(580, 270)" filter="url(#pDrop)">
+    <rect width="70" height="160" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="35" y="22" text-anchor="middle" fill="#10b981" font-size="12" font-weight="bold">2-Way</text>
+    <text x="35" y="40" text-anchor="middle" fill="#6ee7b7" font-size="10">Manifold</text>
+    
+    <!-- Manifold branches -->
+    <circle cx="35" cy="70" r="10" fill="#0284c7"/>
+    <circle cx="35" cy="130" r="10" fill="#0284c7"/>
+  </g>
+
+  <!-- Pipe: Manifold to Valve 1 (Top Branch) -->
+  <path d="M 650 340 L 690 340 L 690 200 L 730 200" fill="none" stroke="url(#pipeGrad)" stroke-width="10" stroke-linejoin="round"/>
+
+  <!-- Pipe: Manifold to Valve 2 (Bottom Branch) -->
+  <path d="M 650 400 L 690 400 L 690 520 L 730 520" fill="none" stroke="url(#pipeGrad)" stroke-width="10" stroke-linejoin="round"/>
+
+  <!-- ================= ZONE 1 (TOP) ================= -->
+  <g transform="translate(730, 145)" filter="url(#pDrop)">
+    <rect width="110" height="110" rx="10" fill="#1e293b" stroke="#ec4899" stroke-width="2"/>
+    <text x="55" y="25" text-anchor="middle" fill="#f472b6" font-size="13" font-weight="bold">Zone 1 Valve</text>
+    <text x="55" y="55" text-anchor="middle" fill="#f8fafc" font-size="11">12V NC 1/2"</text>
+    <text x="55" y="75" text-anchor="middle" fill="#fb7185" font-size="11">Solenoid</text>
+    <text x="55" y="95" text-anchor="middle" fill="#94a3b8" font-size="10">Flow ──►</text>
+  </g>
+
+  <!-- Zone 1 Main Pipe -->
+  <path d="M 840 200 L 1050 200" fill="none" stroke="#10b981" stroke-width="8" stroke-linecap="round"/>
+  <text x="945" y="185" text-anchor="middle" fill="#34d399" font-size="11" font-weight="bold">16mm LDPE Mainline</text>
+
+  <!-- Zone 1 Drip Lines & Emitters -->
+  <g stroke="#38bdf8" stroke-width="3">
+    <line x1="880" y1="200" x2="880" y2="240"/>
+    <line x1="930" y1="200" x2="930" y2="240"/>
+    <line x1="980" y1="200" x2="980" y2="240"/>
+    <line x1="1030" y1="200" x2="1030" y2="240"/>
+  </g>
+  <g fill="#38bdf8">
+    <circle cx="880" cy="245" r="5"/>
+    <circle cx="930" cy="245" r="5"/>
+    <circle cx="980" cy="245" r="5"/>
+    <circle cx="1030" cy="245" r="5"/>
+  </g>
+  <text x="955" y="270" text-anchor="middle" fill="#38bdf8" font-size="11">10x 2 LPH PC Drip Emitters</text>
+
+  <!-- Zone 1 Soil Sensors -->
+  <g transform="translate(860, 90)">
+    <rect width="180" height="40" rx="6" fill="#1e293b" stroke="#38bdf8"/>
+    <text x="90" y="24" text-anchor="middle" fill="#7dd3fc" font-size="11">Zone 1 Soil Sensors (A &amp; B)</text>
+  </g>
+
+  <!-- ================= ZONE 2 (BOTTOM) ================= -->
+  <g transform="translate(730, 465)" filter="url(#pDrop)">
+    <rect width="110" height="110" rx="10" fill="#1e293b" stroke="#f43f5e" stroke-width="2"/>
+    <text x="55" y="25" text-anchor="middle" fill="#fb7185" font-size="13" font-weight="bold">Zone 2 Valve</text>
+    <text x="55" y="55" text-anchor="middle" fill="#f8fafc" font-size="11">12V NC 1/2"</text>
+    <text x="55" y="75" text-anchor="middle" fill="#fda4af" font-size="11">Solenoid</text>
+    <text x="55" y="95" text-anchor="middle" fill="#94a3b8" font-size="10">Flow ──►</text>
+  </g>
+
+  <!-- Zone 2 Main Pipe -->
+  <path d="M 840 520 L 1050 520" fill="none" stroke="#10b981" stroke-width="8" stroke-linecap="round"/>
+  <text x="945" y="505" text-anchor="middle" fill="#34d399" font-size="11" font-weight="bold">16mm LDPE Mainline</text>
+
+  <!-- Zone 2 Drip Lines & Emitters -->
+  <g stroke="#38bdf8" stroke-width="3">
+    <line x1="880" y1="520" x2="880" y2="560"/>
+    <line x1="930" y1="520" x2="930" y2="560"/>
+    <line x1="980" y1="520" x2="980" y2="560"/>
+    <line x1="1030" y1="520" x2="1030" y2="560"/>
+  </g>
+  <g fill="#38bdf8">
+    <circle cx="880" cy="565" r="5"/>
+    <circle cx="930" cy="565" r="5"/>
+    <circle cx="980" cy="565" r="5"/>
+    <circle cx="1030" cy="565" r="5"/>
+  </g>
+  <text x="955" y="590" text-anchor="middle" fill="#38bdf8" font-size="11">10x 2 LPH PC Drip Emitters</text>
+
+  <!-- Zone 2 Soil Sensors -->
+  <g transform="translate(860, 620)">
+    <rect width="180" height="40" rx="6" fill="#1e293b" stroke="#38bdf8"/>
+    <text x="90" y="24" text-anchor="middle" fill="#7dd3fc" font-size="11">Zone 2 Soil Sensors (A &amp; B)</text>
+  </g>
+</svg>
